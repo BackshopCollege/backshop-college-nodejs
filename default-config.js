@@ -2,8 +2,7 @@
 var cfg = module.exports;
 
 cfg.databaseOpts = {
-  host: 'localhost',
-  port: '27017'
+  uri: 'mongod://localhost:27017/college-nodejs'
 };
 
 
