@@ -1,0 +1,23 @@
+{
+  "name": "wru-core",
+  "version": "0.0.1",
+  "description": "'wru business core'",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "faker": "^2.0.1",
+    "mocha": "^2.0.1"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "bcrypt": "^0.8.0",
+    "boom": "^2.6.0",
+    "joi": "^4.7.0",
+    "mongoose": "^3.8.18"
+  }
+}
