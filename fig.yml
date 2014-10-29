@@ -1,0 +1,13 @@
+db:
+  image: mongo:2.6
+  ports:
+    - "27017"
+web:
+  build: .
+  ports:
+    - "3000:3000"
+  links:
+    - db
+  environment:
+    NODE_PATH: /app
+
