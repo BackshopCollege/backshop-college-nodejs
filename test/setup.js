@@ -13,15 +13,21 @@ function setup(cb) {
 
 function cleanUp(database, cb){
   var collections = mongoose.connection.collections;
-   var todo = collections.length;
-  if (!todo) return cb();
-  
-  collections.forEach(function(collection) {
-    if (collection.collectionName.match(/^system\./)) return --todo;
+  var todo = Object.keys(collections).length;
 
-      collection.remove({ },{ safe: true }, function() {
-      if (--todo === 0) cb();
-    });
-  });
+  if (!todo) return cb();
+
+  for (var i in collections) {
+    if (collections[i].name.match(/^system\./)) return --todo;
+    collections[i].remove({}, { safe: true }, count);
+  }
+
+  function count (err) {
+    if (err)
+      return console.trace(err);
+
+    if (--todo === 0)
+      cb();
+  }
 }
 
